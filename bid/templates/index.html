@@ -46,6 +46,9 @@
             }
             .classofcard{
               margin: 20px 28px;
+              border: none;
+             
+              
              
             }
             .thirdsectionheading{
@@ -53,6 +56,30 @@
               font-size: 40px ;
               margin-left: 12rem;
               margin-top: 30px;
+            }
+            #thirdsection{
+              padding-top: 10px;
+              background-color: #f7f7f7;
+            }
+            .theimageclass{
+              transition: transform .2s ease-in-out;
+            }
+            
+            .theimageclass:hover{
+              transform: scale(1.5);
+              opacity: 0.4;
+              
+            }
+            .imagecardback{
+              background-color: black;
+              overflow: hidden;
+            }
+            .aboutbutton{
+                position: absolute;
+               bottom: 185px;
+                left: 64px;
+               
+
             }
             
         </style>
@@ -120,48 +147,67 @@
           </div>
         </div>
       </div>
-      <hr id="firsthr">
       <div id="thirdsection"> 
         <p class="thirdsectionheading">Here are some products on which you can bet on.</p>
+        <hr id="firsthr">
         <div class="productcards">
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            <button class="btn btn-primary aboutbutton">About the product</button>
+          </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
           <div class="card classofcard" style="width: 18rem;">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top" alt="...">
+            <div class="imagecardback">
+              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            </div>
             <div class="card-body">
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
             </div>
           </div>
         </div>
       </div>
+      {% endblock %}
+      {% block js %}
+  
+
+
+
       {% endblock %}
 
     <!-- Optional JavaScript; choose one of the two! -->
