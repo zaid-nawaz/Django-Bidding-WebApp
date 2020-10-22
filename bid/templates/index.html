@@ -1,6 +1,6 @@
 {% extends 'basic.html' %}
         {% block css %}
-        <link href="https://fonts.googleapis.com/css2?family=Exo:wght@700&family=Playfair+Display&display=swap" rel="stylesheet">
+     
         <style>
             .carousell{
                 position: relative;
@@ -12,6 +12,7 @@
               margin-left: 26rem;
               margin-top: 20px ;
             }
+            
             #firsthr{
               width: 75%;
               margin: auto;
@@ -47,7 +48,7 @@
             .classofcard{
               margin: 20px 28px;
               border: none;
-             
+              box-shadow: 2px 2px 6px grey;
               
              
             }
@@ -65,21 +66,78 @@
               transition: transform .2s ease-in-out;
             }
             
-            .theimageclass:hover{
+            /* .theimageclass:hover{
               transform: scale(1.5);
               opacity: 0.4;
               
-            }
+            } */
             .imagecardback{
               background-color: black;
               overflow: hidden;
             }
             .aboutbutton{
-                position: absolute;
-               bottom: 185px;
-                left: 64px;
+              position: absolute;
+              bottom: 140px;
+              left: 55px;
+              color: white;
+               background-color: #00800000;
+              outline: none;
+              border: 2px solid white;
+              padding: 8px 19px;
                
 
+            }
+            #seemorebutton{
+              border: 0.5px solid #888888;
+    padding: 10px 30px;
+    font-size: 16px;
+    color: #888888;
+    /* position: absolute; */
+    position: relative;
+    left: 28rem;
+    /* margin: auto; */
+    margin-bottom: 6rem;
+    margin-top: 4rem;
+            }
+
+            #tagline{
+              font-family: 'Exo', sans-serif;
+    position: absolute;
+    font-size: 54px;
+    bottom: 12rem;
+    right: 39rem;
+    width: 31rem;
+            }
+            #smalltagline{
+              position: relative;
+    bottom: 6rem;
+    right: 24rem;
+            }
+            #listingproduct{
+              position: relative;
+    bottom: 5rem;
+    right: 25rem;
+            }
+            #viewproducts{
+              position: relative;
+    bottom: 5rem;
+    right: 24rem;
+            }
+            .styleforbuttons{
+              color: white;
+               background-color: #00800000;
+              outline: none;
+              border: 2px solid white;
+              padding: 8px 19px;
+            }
+            /* #prodprice{
+              position: relative;
+    bottom: 2.7rem;
+    left: 12rem;
+            } */
+            .pricecontainer{
+              display: flex;
+    justify-content: space-between;
             }
             
         </style>
@@ -96,8 +154,16 @@
           <div class="carousel-item active">
             <img src="media/carouselwallpaper7.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <div id="tagline">
+                these are some words just to see
+                 if it works out or not. 
+              </div>
+              <h5 id="smalltagline">these are some words just to
+                see if it works out or not.
+              </h5>
+            <a href="/productlisting"> <button id="listingproduct" class="styleforbuttons">list your products</button></a> 
+              <button id="viewproducts" class="styleforbuttons">see some products</button>
+              <!-- <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
             </div>
           </div>
           <div class="carousel-item">
@@ -151,61 +217,58 @@
         <p class="thirdsectionheading">Here are some products on which you can bet on.</p>
         <hr id="firsthr">
         <div class="productcards">
+          {% for i in listprod %}
           <div class="card classofcard" style="width: 18rem;">
             <div class="imagecardback">
-            <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            <button class="btn btn-primary aboutbutton">About the product</button>
+            <img src="media/{{ i.productImage }}" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
+            <button class="aboutbutton" style="display: none;">About the product</button>
           </div>
             <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <div class="pricecontainer">
+              <span class="card-text lead">{{ i.productname }}
+              </span>
+              <span id="prodprice">Rs.{{ i.productprice }}</span>
+            </div>
             </div>
           </div>
-          <div class="card classofcard" style="width: 18rem;">
-            <div class="imagecardback">
-              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card classofcard" style="width: 18rem;">
-            <div class="imagecardback">
-              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card classofcard" style="width: 18rem;">
-            <div class="imagecardback">
-              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card classofcard" style="width: 18rem;">
-            <div class="imagecardback">
-              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
-          <div class="card classofcard" style="width: 18rem;">
-            <div class="imagecardback">
-              <img src="media/carouselwallpaper7.jpg" width="200px" height="200px" class="card-img-top theimageclass" alt="...">
-            </div>
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-          </div>
+          {% endfor %}   
+         
+         
+         
+         
+          
+          <!-- <button id='seemorebutton'>see more</button> -->
         </div>
       </div>
       {% endblock %}
       {% block js %}
-  
+      <script>
+        let aboutbutton = document.getElementsByClassName('aboutbutton');
+        let theimageclass = document.getElementsByClassName('theimageclass')
+        Array.from(theimageclass).forEach((e)=>{
+          e.addEventListener('mouseover',(e)=>{
+            
+            e.target.nextElementSibling.style.display = 'block';
+            e.target.style.transform = 'scale(1.5)'
+            e.target.style.opacity = '0.4';
+          })
+          e.addEventListener('mouseout',(e)=>{
+            e.target.nextElementSibling.style.display = 'none';
+            e.target.style.transform = 'scale(1)'
+            e.target.style.opacity = '1';
+          })
+        })
+        Array.from(aboutbutton).forEach((e)=>{
+          e.addEventListener('mouseover',(e)=>{
+            e.target.previousElementSibling.style.transform = 'scale(1.5)';
+            e.target.previousElementSibling.style.opacity = '0.4';
+            e.target.style.display = 'block'
 
+          })
+        })
+  
+      </script>
+    
 
 
       {% endblock %}
