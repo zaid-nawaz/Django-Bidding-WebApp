@@ -13,15 +13,16 @@
     <style>
         #navbar{
             z-index: 2;
-           
+            opacity: 0.5;
         }
         .textcolor{
           color: white;
         }
         #footer{
           height: 4rem;
-          background-color: rgb(0, 0, 0);
-          color: white;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    margin-top: 8rem;
         }
         .socialimage{
           width: 30px;
@@ -35,14 +36,17 @@
     left: 13rem;
     top: 0.5rem;
         }
-      
+        .backofnav{
+          background-color: black;
+          
+        }
     </style>
       {% block css %}
     
       {% endblock %}
   </head>
   <body>
-  
+    <div class="backofnav">
     <nav class="navbar navbar-expand-lg" id="navbar">
         <a class="navbar-brand textcolor" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +76,7 @@
          
         </div>
       </nav>
-    
+    </div>
       {% block body %}{% endblock %}
       <div id="footer">
        <img src="/media/youtube.png" alt="" class="socialimage">

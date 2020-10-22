@@ -22,5 +22,6 @@ from bid import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$',views.index,name='index'),
-    url(r'^productlisting/',include('listproduct.urls'))
+    url(r'^productlisting/',include('listproduct.urls')),
+    url(r'^seesomeproducts/',include('seesomeproduct.urls'))
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
