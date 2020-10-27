@@ -14,11 +14,96 @@
     background-color: black;
     height: 28.2rem;
 }
+.searchcard{
+    display: flex;
+    
+    margin: 50px 2px;
+}
+.innerdivofsearchcard{
+    padding: 18px 46px;
+}
+#searchbar{
+    position: absolute;
+    top: 20rem;
+    right: 26rem;
+    width: 34em;
+    
+    outline: none;
+    border: none;
+    height: 44px;
+    border-radius: 23px;
+    padding: 7px 44px;
+}
+#bigtagline{
+    position: absolute;
+    bottom: 24rem;
+    left: 25.7rem;
+    color: white;
+    font-size: 61px;
+    font-family: 'Exo';
+}
+#smalltagline{
+    position: absolute;
+    bottom: 21rem;
+    left: 20.7rem;
+    color: white;
+    font-size: 20px;
+}
+#submitsearch{
+    width: 25px;
+    height: 25px;
+    
+
+}
+#btn{
+    position: absolute;
+    bottom: 16.8rem;
+    left: 54rem;
+    border: none;
+}
+
+
 </style>
 {% endblock %}
 {% block body %}
 <div class="backgroundimg">
     <img src="/media/backgroundimageforseesomeproducts.jpg" alt="" class="bgimg">
+    <h1 id="bigtagline">this is the tagline.</h1>
+    <p id="smalltagline">this is the smalltagline with a bit more words that makes it a long sentence.</p>
+    <form action="{% url 'search' %}" method="GET">
+    <input type="search" id="searchbar" name="searchbar" placeholder="Search products or category here">
+    <button type="submit" id="btn"><img src="/media/search3.png" alt="" id="submitsearch"></button>
+
+</form>
+</div>
+<div class="container">
+    {% if sorry %}
+    <div class="container mx-3 my-4">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Sorry!</h1>
+          <p class="lead">Sorry we couldn't find the item that you're searching for.</p>
+        </div>
+      </div>
+    </div>
+     {% else %} 
+    {% for i in listsearch %}
+
+    <div class="searchcard">
+        <img src="/media/{{i.productImage}}" alt="" width="240px" height="204px" style="position: relative;
+        top: 20px;">
+        <div class="innerdivofsearchcard">
+            <h4>{{i.productname}}</h4>
+            <p>{{i.productdesc}}</p>
+            <p>Rs. <b> {{i.productprice}} </b></p>
+            <p>Last Date for Bidding -  {{i.biddingtimeperiod}}</p>
+        </div>
+    </div>
+    <hr>
+    {% endfor %}
+    {% endif %}
+
+  
 </div>
 {% endblock %}
 {% block js %}
