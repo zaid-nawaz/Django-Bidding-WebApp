@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block css %}
+<style>
+    body{
+        background-color: #fafafa;
+    }
+    .searchcard{
+    display: flex;
+    
+    margin: 50px 2px;
+}
+.innerdivofsearchcard{
+    padding: 18px 46px;
+}
+#footer{
+    margin-top: 13rem;
+}
+#navbar{
+    /* background: linear-gradient(90deg,#77A1D3,#79CBCA,#E684AE); */
+    background: linear-gradient(90deg,#314755,#26a0da);
+}
+#primg{
+    border: 3px solid #f1f1f1;
+    padding: 6px;
+}
+#form{
+    display: flex;
+    flex-direction: column;
+}
+#submitbiddingbutton{
+    background: linear-gradient(90deg,#314755,#26a0da);
+    border: none;
+}
+</style>
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="searchcard">
+        <img src="/media/{{prod.productImage}}" alt="" width="375px" height="325px" style="position: relative;
+        top: 20px;" id="primg">
+        <div class="innerdivofsearchcard">
+            <h2>{{prod.productcategory}}</h2>
+            <h4>{{prod.productname}}</h4>
+            <p>{{prod.productdesc}}</p>
+            <p>Rs. <b> {{prod.productprice}} </b></p>
+            <p>Last Date for Bidding - {{prod.biddingtimeperiod}}</p>
+            <p>product highest bid - 20000</p>
+            <form action="" id="form">
+                <input type="number" id="biddingmoney" name="biddingmoney">
+                <button type="submit" class="btn btn-primary my-4" id="submitbiddingbutton">Bid the amount</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+{% endblock %}
