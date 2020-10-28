@@ -27,3 +27,9 @@ def search(request):
     if len(listofsearchitem) == 0:
         params = {'sorry':True}
     return render(request,'seesomeproduct.html',params)
+
+def prodview(request):
+    prodid = request.GET.get('productid','nothing')
+    prod = listedproducts.objects.filter(productid=prodid)
+    params = {'prod':prod[0]}
+    return render(request,'abouttheproductpage.html',params)

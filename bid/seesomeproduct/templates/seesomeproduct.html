@@ -90,10 +90,10 @@
     {% for i in listsearch %}
 
     <div class="searchcard">
-        <img src="/media/{{i.productImage}}" alt="" width="240px" height="204px" style="position: relative;
-        top: 20px;">
+        <a href="/seesomeproducts/prodview?productid={{i.productid}}"><img src="/media/{{i.productImage}}" alt="" width="240px" height="204px" style="position: relative;
+        top: 20px;"></a>
         <div class="innerdivofsearchcard">
-            <h4>{{i.productname}}</h4>
+            <a href="/seesomeproducts/prodview?productid={{i.productid}}"><h4>{{i.productname}}</h4></a>
             <p>{{i.productdesc}}</p>
             <p>Rs. <b> {{i.productprice}} </b></p>
             <p>Last Date for Bidding -  {{i.biddingtimeperiod}}</p>
