@@ -31,10 +31,45 @@
     background: linear-gradient(90deg,#314755,#26a0da);
     border: none;
 }
+.sideinfo{
+    
+    height: 32rem;
+    width: 24rem;
+    position: relative;
+    top: 30px;
+    background-color: #e4e4e4;
+    left: 74px;
+    border-radius: 9px;
+
+}
+.biddinginfo{
+    position: absolute;
+    top: 2rem;
+    font-size: 30px;
+    padding: 1px 21px;
+    text-align: center;
+    color: #565656;
+}
+.winnerinfo{
+    position: absolute;
+    top: 22rem;
+    font-size: 35px;
+    padding: 1px 20px;
+    text-align: center;
+    color: #929292;
+}
 </style>
 {% endblock %}
 {% block body %}
-<div class="container">
+{% if success %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Thank you for bidding!</strong> Please wait until the bidding time period end to see the winner.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="alertbutton">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endif %}
+<div class="container d-flex">
     <div class="searchcard">
         <img src="/media/{{prod.productImage}}" alt="" width="375px" height="325px" style="position: relative;
         top: 20px;" id="primg">
@@ -44,13 +79,29 @@
             <p>{{prod.productdesc}}</p>
             <p>Rs. <b> {{prod.productprice}} </b></p>
             <p>Last Date for Bidding - {{prod.biddingtimeperiod}}</p>
-            <p>product highest bid - 20000</p>
-            <form action="" id="form">
+            {% if nothing %}
+            <p>product highest bid - 0</p>
+            {% else %}
+            <p>product highest bid - {{highestbid}}</p>
+
+            {% endif %}
+            <form action="{% url 'prodview' %}?productid={{prod.productid}}" id="form" method="POST"> {% csrf_token %} 
+                {% if biddingdateisover %}
+                <input type="number" id="biddingmoney" name="biddingmoney" class="d-none">
+                <button type="submit" class="btn btn-danger my-4 d-none" id="submitbiddingbutton">Bidover</button>
+                {% else %}
                 <input type="number" id="biddingmoney" name="biddingmoney">
                 <button type="submit" class="btn btn-primary my-4" id="submitbiddingbutton">Bid the amount</button>
+                {% endif %}
             </form>
         </div>
     </div>
+    {% if biddingdateisover %}
+    <div class="sideinfo">
+        <p class="biddinginfo">Sorry! The bidding is over now. You can see some other products from our site.</p>
+        <p class="winnerinfo">The Highest bidder is " {{winnername}} "</p>
+    </div>
+    {% endif %}
 </div>
 {% endblock %}
 {% block js %}

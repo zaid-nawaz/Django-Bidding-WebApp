@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.contrib import admin
-from seesomeproduct.models import Biddingprice
+from loginOrSignupSystem.models import User
 
 # Register your models here.
-admin.site.register(Biddingprice)
+admin.site.register(User)

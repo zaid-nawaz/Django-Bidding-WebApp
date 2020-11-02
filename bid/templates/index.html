@@ -144,6 +144,11 @@
         
         {% endblock %}
       {% block body %}
+      <script>
+         {% if dontshowpage %}
+        window.location = '/accounts/login';
+        {% endif %}
+      </script>
       <div id="carouselExampleCaptions" class="carousel slide carousell" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -162,7 +167,7 @@
                 see if it works out or not.
               </h5>
             <a href="/productlisting"> <button id="" class="styleforbuttons listingproduct" >list your products</button></a> 
-             <a href="/seesomeproducts"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
+             <a href="/seesomeproducts?username={{username}}"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
               <!-- <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
             </div>
           </div>
@@ -177,7 +182,7 @@
                 see if it works out or not.
               </h5>
               <a href="/productlisting"> <button id="" class="styleforbuttons listingproduct">list your products</button></a> 
-              <a href="/seesomeproducts"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
+              <a href="/seesomeproducts?username={{username}}"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
             </div>
           </div>
           <div class="carousel-item">
@@ -191,7 +196,7 @@
                 see if it works out or not.
               </h5>
               <a href="/productlisting"> <button id="" class="styleforbuttons listingproduct">list your products</button></a> 
-              <a href="/seesomeproducts"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
+              <a href="/seesomeproducts?username={{username}}"><button id="" class="styleforbuttons viewproducts">see some products</button></a> 
             </div>
           </div>
         </div>
@@ -285,7 +290,7 @@
 
           })
         })
-  
+       
       </script>
     
 
